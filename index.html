@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="obaro — dear rhea, an 8-track visual album exploring psychological isolation, longing, and emotional resolution.">
+    <title>obaro — dear rhea,</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --dim: #666666;
+            --accent: #d90429;
+            --accent-glow: rgba(217, 4, 41, 0.6);
+            --border: #e5e5e5;
+            --font: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #ffffff;
+                --dim: #888888;
+                --accent: #ff2a2a;
+                --accent-glow: rgba(255, 42, 42, 0.7);
+                --border: #222222;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.4;
+            font-size: 0.85rem;
+            padding: 40px 0;
+            overflow-x: hidden;
+        }
+
+        /* Centered Padded Text Container */
+        header, h2.track-title, .track-locked, .dispatch-section, footer {
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: lowercase;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        nav.track-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+        }
+
+        nav.track-nav a {
+            color: var(--dim);
+            text-decoration: none;
+        }
+
+        nav.track-nav a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        nav.track-nav a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        nav.track-nav span.locked-nav {
+            color: var(--dim);
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 600px) {
+            nav.track-nav {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        .glow-red {
+            color: var(--accent) !important;
+            text-shadow: 0 0 8px var(--accent-glow), 0 0 16px var(--accent-glow);
+            font-weight: 700;
+        }
+
+        article.track {
+            margin-bottom: 90px;
+        }
+
+        h2.track-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: lowercase;
+        }
+
+        .track-num {
+            color: var(--accent);
+        }
+
+        .video-wrapper {
+            width: 100vw;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            margin-bottom: 0;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Seamless Edge-to-Edge Vertical Storyboard Filmstrip */
+        .story-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        .story-grid img {
+            width: 100vw;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .track-locked {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--dim);
+            opacity: 0.35;
+            margin-bottom: 24px;
+            text-transform: lowercase;
+        }
+
+        .dispatch-section {
+            margin-top: 80px;
+            margin-bottom: 40px;
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+        }
+
+        .dispatch-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+            align-items: center;
+        }
+
+        .dispatch-links a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-shadow: 0 0 8px var(--accent-glow), 0 0 16px var(--accent-glow);
+            font-weight: 700;
+        }
+
+        .dispatch-links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            color: var(--dim);
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 14px;
+        }
+
+        .links a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>obaro — <span>dear rhea,</span></h1>
+        <nav class="track-nav">
+            <!-- Active Released Track -->
+            <a href="#01"><span class="track-num">01.</span> depression 101.</a>
+            
+            <!-- Dimmed Unreleased Tracks -->
+            <span class="locked-nav">02. moon eyes.</span>
+            <span class="locked-nav">03. read the room!</span>
+            <span class="locked-nav">04. kissing myself.</span>
+            <span class="locked-nav">05. i love you. I lost you.</span>
+            <span class="locked-nav">06. linen.</span>
+            <span class="locked-nav">07. clown sees ghost.</span>
+            <span class="locked-nav">08. should I still fight for you?</span>
+            <span class="locked-nav">09. curtain music.</span>
+            
+            <!-- Direct Actions -->
+            <a href="room.html" class="glow-red">+ room</a>
+        </nav>
+    </header>
+
+    <!-- MONTH 1 RELEASE: TRACK 01 (ACTIVE) -->
+    <article class="track" id="01">
+        <h2 class="track-title"><span class="track-num">01.</span> depression 101.</h2>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube-nocookie.com/embed/SABXyWEUncs?rel=0&modestbranding=1" 
+                title="depression 101." 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen 
+                loading="lazy">
+            </iframe>
+        </div>
+        <div class="story-grid">
+            <img src="assets/scene_01.png" alt="depression 101 - step 1: fake being sad (until you are sad)" loading="lazy">
+            <img src="assets/scene_02.png" alt="depression 101 - step 2: fake being okay" loading="lazy">
+            <img src="assets/scene_03.png" alt="depression 101 - step 3: watch your mind argue with itself in a loop" loading="lazy">
+            <img src="assets/scene_04.png" alt="depression 101 - step 4: let the chaos settle in" loading="lazy">
+            <img src="assets/scene_05.png" alt="depression 101 - step 5: congrats! you made it!" loading="lazy">
+        </div>
+    </article>
+
+    <!-- UNRELEASED QUEUE (PURE TEXT - NO BOXES, NO BORDERS) -->
+    <div class="track-locked">02. moon eyes.</div>
+    <div class="track-locked">03. read the room!</div>
+    <div class="track-locked">04. kissing myself.</div>
+    <div class="track-locked">05. i love you. I lost you.</div>
+    <div class="track-locked">06. linen.</div>
+    <div class="track-locked">07. clown sees ghost.</div>
+    <div class="track-locked">08. should I still fight for you?</div>
+    <div class="track-locked">09. curtain music.</div>
+
+    <!-- Fan Dispatch / Direct Sovereign Lines & Room -->
+    <section class="dispatch-section" id="dispatch">
+        <div class="dispatch-links">
+            <a href="room.html" class="glow-red">room</a>
+            <a href="https://wa.me/234XXXXXXXXXX?text=dear%20rhea%20access" target="_blank" rel="noopener noreferrer" class="glow-red">direct line [whatsapp]</a>
+            <a href="mailto:admin@obaro.site?subject=dear%20rhea%20access" class="glow-red">direct line [email]</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>obaro — dear rhea,</span>
+        <div class="links">
+            <a href="epk.html">epk</a>
+            <a href="platforms.html">external portals</a>
+        </div>
+    </footer>
+
+</body>
+</html>

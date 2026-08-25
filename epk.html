@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="obaro — dear rhea, Electronic Press Kit (EPK), artist synopsis, project metadata, and press assets.">
+    <title>obaro — dear rhea, [epk]</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --dim: #666666;
+            --accent: #d90429;
+            --accent-glow: rgba(217, 4, 41, 0.6);
+            --border: #e5e5e5;
+            --font: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #ffffff;
+                --dim: #888888;
+                --accent: #ff2a2a;
+                --accent-glow: rgba(255, 42, 42, 0.7);
+                --border: #222222;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            font-size: 0.85rem;
+            padding: 40px 0;
+            overflow-x: hidden;
+        }
+
+        /* Centered Content Containers */
+        header, .content-section, footer {
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: lowercase;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        .back-link {
+            color: var(--dim);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2.section-header {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: lowercase;
+            color: var(--dim);
+        }
+
+        p.bio-text {
+            color: var(--text);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .specs-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .spec-line {
+            display: flex;
+            gap: 12px;
+        }
+
+        .spec-label {
+            color: var(--dim);
+            min-width: 80px;
+        }
+
+        .spec-val {
+            font-weight: 700;
+        }
+
+        .spec-val a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .spec-val a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .video-wrapper {
+            width: 100vw;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            margin-bottom: 40px;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .asset-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .asset-list a {
+            color: var(--text);
+            text-decoration: none;
+            width: fit-content;
+        }
+
+        .asset-list a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        .asset-meta {
+            color: var(--dim);
+            font-size: 0.78rem;
+            margin-left: 6px;
+        }
+
+        .glow-red {
+            color: var(--accent) !important;
+            text-shadow: 0 0 8px var(--accent-glow), 0 0 16px var(--accent-glow);
+            font-weight: 700;
+        }
+
+        .contact-link {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .contact-link:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        footer {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            color: var(--dim);
+        }
+
+        footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>obaro — <span>dear rhea,</span></h1>
+        <a href="index.html" class="back-link">dear rhea,</a>
+    </header>
+
+    <!-- Project Metadata -->
+    <section class="content-section">
+        <h2 class="section-header">metadata</h2>
+        <div class="specs-list">
+            <div class="spec-line"><span class="spec-label">artist</span><span class="spec-val">obaro</span></div>
+            <div class="spec-line"><span class="spec-label">title</span><span class="spec-val">dear rhea,</span></div>
+            <div class="spec-line"><span class="spec-label">format</span><span class="spec-val">8-track visual album</span></div>
+            <div class="spec-line"><span class="spec-label">origin</span><span class="spec-val">Lagos, Nigeria</span></div>
+            <div class="spec-line"><span class="spec-label">archive</span><span class="spec-val"><a href="index.html">past release logs</a></span></div>
+        </div>
+    </section>
+
+    <!-- Synopsis / Bio -->
+    <section class="content-section">
+        <h2 class="section-header">synopsis</h2>
+        <p class="bio-text">
+            dear rhea, is an 8-track visual album by Nigerian artist obaro. The project explores themes of psychological isolation, longing, and emotional resolution through minimal sound design paired with direct lyric-video narratives.
+        </p>
+        <p class="bio-text">
+            Designed for high-impact visual listening, each song advances a two-scene storyline, framing personal vulnerability against stark, clinical production.
+        </p>
+    </section>
+
+    <!-- Focus Single Stream: Full-Bleed (100vw, Zero Padding) -->
+    <section>
+        <div class="content-section">
+            <h2 class="section-header">focus track</h2>
+        </div>
+        <div class="video-wrapper">
+            <iframe 
+                src="https://www.youtube-nocookie.com/embed/SABXyWEUncs?rel=0&modestbranding=1" 
+                title="depression 101." 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen 
+                loading="lazy">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Press Assets -->
+    <section class="content-section">
+        <h2 class="section-header">press assets</h2>
+        <div class="asset-list">
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">press photos <span class="asset-meta">(high-res zip)</span></a>
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">album artwork <span class="asset-meta">(3000x3000px)</span></a>
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">press release <span class="asset-meta">(pdf)</span></a>
+            <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">master audio wavs <span class="asset-meta">(promo stream)</span></a>
+        </div>
+    </section>
+
+    <!-- Press Contact -->
+    <section class="content-section">
+        <h2 class="section-header">press contact</h2>
+        <p class="bio-text">email: <a href="mailto:admin@obaro.site" class="contact-link">admin@obaro.site</a></p>
+        <p class="bio-text">direct line: <a href="https://wa.me/234XXXXXXXXXX?text=press%20inquiry" target="_blank" rel="noopener noreferrer" class="glow-red">+234 XXXXXXXXXX</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>obaro — epk</span>
+        <a href="index.html">dear rhea,</a>
+    </footer>
+
+</body>
+</html>

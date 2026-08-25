@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="obaro — room main feed. Public Q&A, technical dispatches, sound design lore, and community communication stream.">
+    <title>obaro — room</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --dim: #666666;
+            --accent: #d90429;
+            --accent-glow: rgba(217, 4, 41, 0.6);
+            --border: #e5e5e5;
+            --font: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #ffffff;
+                --dim: #888888;
+                --accent: #ff2a2a;
+                --accent-glow: rgba(255, 42, 42, 0.7);
+                --border: #222222;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            padding: 40px 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Centered Padded Text Container */
+        header, form, main, footer {
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        a {
+            color: var(--dim);
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-transform: lowercase;
+        }
+
+        h1 span {
+            color: var(--accent);
+        }
+
+        /* 4-Field Stack Form */
+        form {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-row input {
+            flex: 1;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: rgba(127, 127, 127, 0.08);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.82rem;
+            padding: 10px;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent);
+        }
+
+        button {
+            background: var(--text);
+            color: var(--bg);
+            border: none;
+            padding: 8px 16px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        button:hover {
+            background: var(--accent);
+            color: #ffffff;
+        }
+
+        .entry {
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .q {
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .a {
+            color: var(--text);
+            line-height: 1.6;
+            margin-top: 12px;
+            margin-bottom: 2px;
+        }
+
+        .entry > .a:first-child {
+            margin-top: 0;
+        }
+
+        .time {
+            color: var(--dim);
+            font-size: 0.75rem;
+        }
+
+        .op-tag {
+            color: var(--accent);
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
+
+        .permalink {
+            margin-top: 8px;
+            font-size: 0.78rem;
+        }
+
+        footer {
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            color: var(--dim);
+            font-size: 0.78rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>obaro — <span>room</span></h1>
+        <a href="index.html">dear rhea,</a>
+    </header>
+
+    <!-- 4-Field Verification Stack Form -->
+    <form action="/api/room" method="POST">
+        <div class="form-row">
+            <input type="text" name="name" placeholder="your name..." required>
+            <input type="password" name="pin" maxlength="4" pattern="[0-9]{4}" placeholder="4-digit pin..." required>
+        </div>
+        <textarea name="question" rows="3" placeholder="ask or leave a message (technical, lore, music)..." required></textarea>
+        <input type="text" name="verification" placeholder="human check: what is the artist's name?" required>
+        <button type="submit">TRANSMIT</button>
+    </form>
+
+    <main>
+        <!-- Entry 1: Standalone Artist Dispatch -->
+        <article class="entry">
+            <div class="a">scene 02 render finalized. low-end frequency on track 03 adjusted down 1.5db for vinyl pressing.</div>
+            <div class="time">obaro <span class="op-tag">[OP]</span> — 2026-08-25 04:10</div>
+            <div class="permalink"><a href="entry.html?id=101">[ 2 remarks ]</a></div>
+        </article>
+
+        <!-- Entry 2: Standard Q&A Entry -->
+        <article class="entry">
+            <div class="q">&gt; re: why true black — does this also apply to LCD displays?</div>
+            <div class="time">korede — 2026-08-25 02:40</div>
+            <div class="a">lcd requires a constant backlight, so true black won't yield power savings there. the decision is primarily cognitive and aesthetic—eliminating ambient visual noise.</div>
+            <div class="time">2026-08-25 03:15</div>
+            <div class="permalink"><a href="entry.html?id=102">[ 0 remarks ]</a></div>
+        </article>
+
+        <!-- Entry 3: Standard Q&A Entry -->
+        <article class="entry">
+            <div class="q">&gt; why true black and system monospace across all pages?</div>
+            <div class="time">elim — 2026-08-25 02:14</div>
+            <div class="a">zero network latency, zero framework decay. utility over decoration.</div>
+            <div class="time">2026-08-25 03:00</div>
+            <div class="permalink"><a href="entry.html?id=103">[ 1 remark ]</a></div>
+        </article>
+    </main>
+
+    <footer>
+        <span>obaro — room</span>
+        <a href="index.html">dear rhea,</a>
+    </footer>
+
+</body>
+</html>
