@@ -242,8 +242,8 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 440px;
-            max-width: 90vw;
+            width: 420px;
+            max-width: 82vw;
             height: 100vh;
             background: var(--bg);
             border-left: none;
@@ -279,15 +279,15 @@
             border: none;
             color: var(--dim);
             font-family: inherit;
-            font-size: 0.78rem;
-            padding: 4px 0;
+            font-size: 1.1rem;
+            line-height: 1;
+            padding: 4px 6px;
             cursor: pointer;
             transition: all 0.2s;
         }
 
         .drawer-close:hover {
             color: var(--accent);
-            text-decoration: underline;
         }
 
         .drawer-content {
@@ -494,7 +494,7 @@
     <aside class="ward-drawer" id="ward-drawer" aria-label="Ward 3A Dispatches">
         <div class="drawer-top">
             <span class="drawer-title">obaro — <span class="glow-red">ward 3a</span></span>
-            <button type="button" class="drawer-close" id="drawer-close-btn">[close &times;]</button>
+            <button type="button" class="drawer-close" id="drawer-close-btn" aria-label="Close Ward 3A">&times;</button>
         </div>
         <div class="drawer-content">
             <div class="drawer-context">
