@@ -195,15 +195,15 @@
             bottom: 24px;
             right: 24px;
             z-index: 1000;
-            background: var(--bg);
-            border: 1px solid var(--accent);
+            background: transparent;
+            border: 1px solid transparent;
             color: var(--accent);
             font-family: var(--font);
             font-size: 0.82rem;
             font-weight: 700;
             padding: 10px 16px;
             cursor: pointer;
-            box-shadow: 0 0 14px var(--accent-glow);
+            box-shadow: none;
             transition: all 0.2s ease;
             text-transform: lowercase;
             letter-spacing: 0.5px;
@@ -211,6 +211,7 @@
 
         .floating-ward-btn:hover {
             background: var(--accent);
+            border-color: var(--accent);
             color: #ffffff;
             box-shadow: 0 0 24px var(--accent-glow);
         }
