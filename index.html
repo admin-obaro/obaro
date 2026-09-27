@@ -10,13 +10,12 @@
     <style>
         :root {
             --bg: #000000;
-            --text: #e6e6e6;
+            --text: #ffffff;
             --dim: #888888;
             --accent: #ff2a2a;
             --accent-glow: rgba(255, 42, 42, 0.7);
-            --border: #1e1e1e;
+            --border: #222222;
             --font: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
-            --phosphor-glow: rgba(255, 255, 255, 0.25);
         }
 
         * {
@@ -27,7 +26,6 @@
 
         html {
             scroll-behavior: smooth;
-            background-color: #000000;
         }
 
         body {
@@ -39,44 +37,6 @@
             padding-top: 40px;
             padding-bottom: 90px;
             overflow-x: hidden;
-            text-shadow: 0 0 1px var(--phosphor-glow), 0 0 2px rgba(255, 255, 255, 0.1);
-        }
-
-        /* CRT Screen Scanlines & Phosphor Tube Overlay */
-        .crt-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.85;
-            background: 
-                /* Horizontal scanlines every 3px (softened by 15%) */
-                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.27) 50%),
-                /* Curved CRT glass monitor vignette (softened by 15%) */
-                radial-gradient(circle at center, transparent 70%, rgba(0, 0, 0, 0.55) 100%);
-            background-size: 100% 3px, 100% 100%;
-        }
-
-        /* Subtle analog electron refresh sweep */
-        .crt-overlay::after {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to bottom, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
-            animation: crt-sweep 8s linear infinite;
-            pointer-events: none;
-        }
-
-        @keyframes crt-sweep {
-            0% { transform: translateY(-100px); }
-            100% { transform: translateY(100vh); }
         }
 
         /* Centered Padded Text Container */
@@ -449,9 +409,6 @@
 </head>
 
 <body>
-
-    <!-- CRT Screen Scanlines & Vignette Layer -->
-    <div class="crt-overlay" aria-hidden="true"></div>
 
     <header>
         <h1>obaro — <span>dear rhea,</span></h1>
