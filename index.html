@@ -175,6 +175,11 @@
             text-align: left;
         }
 
+        #ward-nav-trigger {
+            font-size: 0.98rem;
+            font-weight: 700;
+        }
+
         button.ward-trigger:hover {
             text-decoration: underline;
         }
@@ -189,7 +194,7 @@
             border: 1px solid transparent;
             color: var(--accent);
             font-family: var(--font);
-            font-size: 0.82rem;
+            font-size: 0.95rem;
             font-weight: 700;
             padding: 10px 16px;
             cursor: pointer;
@@ -367,15 +372,17 @@
             align-items: center;
         }
 
-        .dispatch-links a {
+        .dispatch-links a,
+        .dispatch-links button.ward-trigger {
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 1.05rem;
             color: var(--accent);
             text-shadow: 0 0 8px var(--accent-glow), 0 0 16px var(--accent-glow);
             font-weight: 700;
         }
 
-        .dispatch-links a:hover {
+        .dispatch-links a:hover,
+        .dispatch-links button.ward-trigger:hover {
             text-decoration: underline;
         }
 
