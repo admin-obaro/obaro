@@ -76,11 +76,13 @@
         nav.track-nav a {
             color: var(--dim);
             text-decoration: none;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         nav.track-nav a:hover {
             color: var(--accent);
-            text-decoration: underline;
+            text-shadow: 0 0 8px var(--accent-glow);
+            text-decoration: none;
         }
 
         nav.track-nav a:focus-visible {
@@ -185,7 +187,7 @@
 
         #ward-nav-trigger:hover {
             background: var(--accent);
-            color: #ffffff !important;
+            color: transparent !important;
             box-shadow: 0 0 20px var(--accent-glow);
             text-decoration: none;
         }
@@ -213,7 +215,7 @@
         .floating-ward-btn:hover {
             background: var(--accent);
             border-color: var(--accent);
-            color: #ffffff;
+            color: transparent;
             box-shadow: 0 0 24px var(--accent-glow);
         }
 
@@ -332,7 +334,7 @@
 
         .drawer-cta-btn:hover {
             background: var(--accent);
-            color: #ffffff;
+            color: transparent;
             box-shadow: 0 0 24px var(--accent-glow);
             text-decoration: none;
         }
@@ -394,7 +396,7 @@
         .dispatch-links a:hover,
         .dispatch-links button.ward-trigger:hover {
             background: var(--accent);
-            color: #ffffff !important;
+            color: transparent !important;
             box-shadow: 0 0 24px var(--accent-glow);
             text-shadow: none;
             text-decoration: none;
@@ -414,12 +416,13 @@
         footer a.footer-title {
             color: var(--dim);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         footer a.footer-title:hover {
             color: var(--accent);
-            text-decoration: underline;
+            text-shadow: 0 0 8px var(--accent-glow);
+            text-decoration: none;
         }
 
         .links {
@@ -431,11 +434,13 @@
         .links a {
             color: var(--text);
             text-decoration: none;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         .links a:hover {
             color: var(--accent);
-            text-decoration: underline;
+            text-shadow: 0 0 8px var(--accent-glow);
+            text-decoration: none;
         }
     </style>
 </head>
