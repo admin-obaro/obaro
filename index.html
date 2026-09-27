@@ -173,52 +173,187 @@
             text-transform: lowercase;
         }
 
-        /* Ward 3A / Open Dispatch */
-        .ward-section {
-            max-width: 750px;
-            margin: 70px auto 60px auto;
-            padding: 0 20px;
+        /* Ward 3A Trigger Buttons */
+        button.ward-trigger {
+            background: none;
+            border: none;
+            font-family: inherit;
+            font-size: inherit;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            text-align: left;
         }
 
-        .ward-header {
+        button.ward-trigger:hover {
+            text-decoration: underline;
+        }
+
+        /* Persistent Floating Button */
+        .floating-ward-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-family: var(--font);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 10px 16px;
+            cursor: pointer;
+            box-shadow: 0 0 14px var(--accent-glow);
+            transition: all 0.2s ease;
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
+        }
+
+        .floating-ward-btn:hover {
+            background: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 0 24px var(--accent-glow);
+        }
+
+        /* Ward 3A Off-Canvas Sidebar */
+        .drawer-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .drawer-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .ward-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 440px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--bg);
+            border-left: 1px solid var(--border);
+            z-index: 1200;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 35px rgba(0, 0, 0, 0.6);
+            font-family: var(--font);
+        }
+
+        .ward-drawer.open {
+            transform: translateX(0);
+        }
+
+        .drawer-top {
+            padding: 24px 24px 16px 24px;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 8px;
-            font-size: 0.78rem;
-            color: var(--dim);
-            margin-bottom: 18px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 8px;
+            align-items: center;
         }
 
-        .ward-tag {
-            color: var(--accent);
+        .drawer-title {
+            font-size: 1.1rem;
             font-weight: 700;
+            text-transform: lowercase;
         }
 
-        .ward-body {
-            line-height: 1.7;
-            margin-bottom: 20px;
+        .drawer-close {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--dim);
+            font-family: inherit;
+            font-size: 0.78rem;
+            padding: 4px 8px;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .ward-body p {
-            margin-bottom: 14px;
-            color: var(--text);
+        .drawer-close:hover {
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
-        .ward-cta {
-            margin-top: 18px;
+        .drawer-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
-        .ward-cta a {
-            text-decoration: none;
-            font-size: 0.85rem;
+        .drawer-context {
+            color: var(--dim);
+            font-size: 0.82rem;
+            line-height: 1.5;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 18px;
+        }
+
+        .drawer-cta-box {
+            background: rgba(127, 127, 127, 0.06);
+            border: 1px solid var(--border);
+            padding: 16px;
+        }
+
+        .drawer-cta-box .cta-note {
+            color: var(--dim);
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+        }
+
+        .drawer-cta-btn {
             display: inline-block;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--accent);
         }
 
-        .ward-cta a:hover {
+        .drawer-cta-btn:hover {
             text-decoration: underline;
+        }
+
+        .diary-feed-title {
+            font-size: 0.8rem;
+            color: var(--dim);
+            text-transform: lowercase;
+            letter-spacing: 0.5px;
+            margin-bottom: -10px;
+        }
+
+        .diary-entry {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .diary-date {
+            font-size: 0.75rem;
+            color: var(--dim);
+        }
+
+        .diary-text {
+            line-height: 1.6;
+            font-size: 0.85rem;
+            color: var(--text);
         }
 
         .dispatch-section {
@@ -295,7 +430,7 @@
             <span class="locked-nav">09. curtain music.</span>
 
             <!-- Direct Actions -->
-            <a href="#ward-3a" class="glow-red">+ ward 3a</a>
+            <button type="button" class="ward-trigger glow-red" id="ward-nav-trigger">+ ward 3a</button>
         </nav>
     </header>
 
@@ -320,31 +455,6 @@
         </div>
     </article>
 
-    <!-- WARD 3A / OPEN DISPATCH -->
-    <section class="ward-section" id="ward-3a">
-        <div class="ward-header">
-            <span class="ward-date">2026-09-27 — 03:44 am</span>
-        </div>
-        <div class="ward-body">
-            <p>
-                i kept cutting the low end on "moon eyes" because i thought it was too heavy,
-                too suffocating. then i realized the suffocating part was the point.
-                dear rhea isn't supposed to feel comfortable. it’s supposed to feel like being
-                alone in a room where the walls remember everything you said.
-            </p>
-            <p>
-                ward 3a is where i drop raw notes, voice memos from 4:00 am,
-                and unreleased cuts before they go anywhere else.
-            </p>
-        </div>
-        <div class="ward-cta">
-            <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer"
-                class="glow-red">
-                &gt; ward 3a [whatsapp] &rarr;
-            </a>
-        </div>
-    </section>
-
     <!-- UNRELEASED QUEUE (PURE TEXT - NO BOXES, NO BORDERS) -->
     <div class="track-locked">02. moon eyes.</div>
     <div class="track-locked">03. read the room!</div>
@@ -358,8 +468,7 @@
     <!-- Direct Sovereign Lines -->
     <section class="dispatch-section" id="dispatch">
         <div class="dispatch-links">
-            <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer"
-                class="glow-red">ward 3a [whatsapp]</a>
+            <button type="button" class="ward-trigger glow-red" id="ward-footer-trigger">ward 3a</button>
             <a href="mailto:admin@obaro.site?subject=dear%20rhea%20access" class="glow-red">email</a>
         </div>
     </section>
@@ -372,6 +481,82 @@
             <a href="platforms.html">external portals</a>
         </div>
     </footer>
+
+    <!-- Persistent Floating Button -->
+    <button type="button" class="floating-ward-btn glow-red" id="floating-ward-trigger" aria-label="Open Ward 3A">+ ward 3a</button>
+
+    <!-- Ward 3A Backdrop -->
+    <div class="drawer-backdrop" id="ward-backdrop"></div>
+
+    <!-- Ward 3A Off-Canvas Sidebar -->
+    <aside class="ward-drawer" id="ward-drawer" aria-label="Ward 3A Dispatches">
+        <div class="drawer-top">
+            <span class="drawer-title">obaro — <span class="glow-red">ward 3a</span></span>
+            <button type="button" class="drawer-close" id="drawer-close-btn">[close &times;]</button>
+        </div>
+        <div class="drawer-content">
+            <div class="drawer-context">
+                unfiltered artist notes, late-night voice memos, and unreleased cuts on whatsapp.
+            </div>
+
+            <div class="drawer-cta-box">
+                <div class="cta-note">// direct transmission frequency</div>
+                <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer"
+                    class="drawer-cta-btn glow-red">
+                    &gt; enter ward 3a [whatsapp] &rarr;
+                </a>
+            </div>
+
+            <div class="diary-feed-title">// dispatches archive</div>
+
+            <!-- Diary Entry 01 -->
+            <article class="diary-entry">
+                <div class="diary-date">2026-09-27 — 03:44 am</div>
+                <div class="diary-text">
+                    i kept cutting the low end on "moon eyes" because i thought it was too heavy, 
+                    too suffocating. then i realized the suffocating part was the point. 
+                    dear rhea isn't supposed to feel comfortable. it’s supposed to feel like being 
+                    alone in a room where the walls remember everything you said.
+                </div>
+            </article>
+        </div>
+    </aside>
+
+    <script>
+        const drawer = document.getElementById('ward-drawer');
+        const backdrop = document.getElementById('ward-backdrop');
+        const openTriggers = [
+            document.getElementById('ward-nav-trigger'),
+            document.getElementById('floating-ward-trigger'),
+            document.getElementById('ward-footer-trigger')
+        ];
+        const closeBtn = document.getElementById('drawer-close-btn');
+
+        function openDrawer() {
+            drawer.classList.add('open');
+            backdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            backdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        openTriggers.forEach(btn => {
+            if (btn) btn.addEventListener('click', openDrawer);
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+        if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('open')) {
+                closeDrawer();
+            }
+        });
+    </script>
 
 </body>
 
