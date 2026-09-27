@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="obaro — dear rhea, an 8-track visual album exploring psychological isolation, longing, and emotional resolution.">
+    <meta name="description"
+        content="obaro — dear rhea, an 8-track visual album exploring psychological isolation, longing, and emotional resolution.">
     <title>obaro — dear rhea,</title>
     <style>
         :root {
@@ -48,7 +50,11 @@
         }
 
         /* Centered Padded Text Container */
-        header, h2.track-title, .track-locked, .dispatch-section, footer {
+        header,
+        h2.track-title,
+        .track-locked,
+        .dispatch-section,
+        footer {
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
@@ -167,6 +173,54 @@
             text-transform: lowercase;
         }
 
+        /* Ward 3A / Open Dispatch */
+        .ward-section {
+            max-width: 750px;
+            margin: 70px auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .ward-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--dim);
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .ward-tag {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .ward-body {
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .ward-body p {
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .ward-cta {
+            margin-top: 18px;
+        }
+
+        .ward-cta a {
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        .ward-cta a:hover {
+            text-decoration: underline;
+        }
+
         .dispatch-section {
             margin-top: 80px;
             margin-bottom: 40px;
@@ -221,6 +275,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -228,7 +283,7 @@
         <nav class="track-nav">
             <!-- Active Released Track -->
             <a href="#01"><span class="track-num">01.</span> depression 101.</a>
-            
+
             <!-- Dimmed Unreleased Tracks -->
             <span class="locked-nav">02. moon eyes.</span>
             <span class="locked-nav">03. read the room!</span>
@@ -238,9 +293,9 @@
             <span class="locked-nav">07. clown sees ghost.</span>
             <span class="locked-nav">08. should I still fight for you?</span>
             <span class="locked-nav">09. curtain music.</span>
-            
+
             <!-- Direct Actions -->
-            <a href="room.html" class="glow-red">+ room</a>
+            <a href="#ward-3a" class="glow-red">+ ward 3a</a>
         </nav>
     </header>
 
@@ -248,22 +303,47 @@
     <article class="track" id="01">
         <h2 class="track-title"><span class="track-num">01.</span> depression 101.</h2>
         <div class="video-wrapper">
-            <iframe 
-                src="https://www.youtube-nocookie.com/embed/SABXyWEUncs?rel=0&modestbranding=1" 
-                title="depression 101." 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen 
-                loading="lazy">
+            <iframe src="https://www.youtube-nocookie.com/embed/SABXyWEUncs?rel=0&modestbranding=1"
+                title="depression 101."
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen loading="lazy">
             </iframe>
         </div>
         <div class="story-grid">
-            <img src="assets/scene_01.png" alt="depression 101 - step 1: fake being sad (until you are sad)" loading="lazy">
+            <img src="assets/scene_01.png" alt="depression 101 - step 1: fake being sad (until you are sad)"
+                loading="lazy">
             <img src="assets/scene_02.png" alt="depression 101 - step 2: fake being okay" loading="lazy">
-            <img src="assets/scene_03.png" alt="depression 101 - step 3: watch your mind argue with itself in a loop" loading="lazy">
+            <img src="assets/scene_03.png" alt="depression 101 - step 3: watch your mind argue with itself in a loop"
+                loading="lazy">
             <img src="assets/scene_04.png" alt="depression 101 - step 4: let the chaos settle in" loading="lazy">
             <img src="assets/scene_05.png" alt="depression 101 - step 5: congrats! you made it!" loading="lazy">
         </div>
     </article>
+
+    <!-- WARD 3A / OPEN DISPATCH -->
+    <section class="ward-section" id="ward-3a">
+        <div class="ward-header">
+            <span class="ward-date">2026-09-27 — 03:44 am</span>
+        </div>
+        <div class="ward-body">
+            <p>
+                i kept cutting the low end on "moon eyes" because i thought it was too heavy,
+                too suffocating. then i realized the suffocating part was the point.
+                dear rhea isn't supposed to feel comfortable. it’s supposed to feel like being
+                alone in a room where the walls remember everything you said.
+            </p>
+            <p>
+                ward 3a is where i drop raw notes, voice memos from 4:00 am,
+                and unreleased cuts before they go anywhere else.
+            </p>
+        </div>
+        <div class="ward-cta">
+            <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer"
+                class="glow-red">
+                &gt; ward 3a [whatsapp] &rarr;
+            </a>
+        </div>
+    </section>
 
     <!-- UNRELEASED QUEUE (PURE TEXT - NO BOXES, NO BORDERS) -->
     <div class="track-locked">02. moon eyes.</div>
@@ -275,12 +355,12 @@
     <div class="track-locked">08. should I still fight for you?</div>
     <div class="track-locked">09. curtain music.</div>
 
-    <!-- Fan Dispatch / Direct Sovereign Lines & Room -->
+    <!-- Direct Sovereign Lines -->
     <section class="dispatch-section" id="dispatch">
         <div class="dispatch-links">
-            <a href="room.html" class="glow-red">room</a>
-            <a href="https://wa.me/234XXXXXXXXXX?text=dear%20rhea%20access" target="_blank" rel="noopener noreferrer" class="glow-red">direct line [whatsapp]</a>
-            <a href="mailto:admin@obaro.site?subject=dear%20rhea%20access" class="glow-red">direct line [email]</a>
+            <a href="https://chat.whatsapp.com/YOUR_COMMUNITY_INVITE_LINK" target="_blank" rel="noopener noreferrer"
+                class="glow-red">ward 3a [whatsapp]</a>
+            <a href="mailto:admin@obaro.site?subject=dear%20rhea%20access" class="glow-red">email</a>
         </div>
     </section>
 
@@ -294,4 +374,5 @@
     </footer>
 
 </body>
+
 </html>
