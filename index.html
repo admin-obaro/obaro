@@ -390,6 +390,17 @@
             color: var(--dim);
         }
 
+        footer a.footer-title {
+            color: var(--dim);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a.footer-title:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
         .links {
             display: flex;
             flex-wrap: wrap;
@@ -410,7 +421,7 @@
 
 <body>
 
-    <header>
+    <header id="top">
         <h1>obaro — <span>dear rhea,</span></h1>
         <nav class="track-nav">
             <!-- Active Released Track -->
@@ -472,7 +483,7 @@
 
     <!-- Footer -->
     <footer>
-        <span>obaro — dear rhea,</span>
+        <a href="#top" class="footer-title">obaro — dear rhea,</a>
         <div class="links">
             <a href="epk.html">epk</a>
             <a href="platforms.html">external portals</a>
