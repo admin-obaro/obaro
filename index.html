@@ -178,10 +178,16 @@
         #ward-nav-trigger {
             font-size: 0.98rem;
             font-weight: 700;
+            padding: 4px 8px;
+            margin: -4px -8px;
+            transition: all 0.2s ease;
         }
 
-        button.ward-trigger:hover {
-            text-decoration: underline;
+        #ward-nav-trigger:hover {
+            background: var(--accent);
+            color: #ffffff !important;
+            box-shadow: 0 0 20px var(--accent-glow);
+            text-decoration: none;
         }
 
         /* Persistent Floating Button */
@@ -379,11 +385,19 @@
             color: var(--accent);
             text-shadow: 0 0 8px var(--accent-glow), 0 0 16px var(--accent-glow);
             font-weight: 700;
+            padding: 6px 12px;
+            margin: -6px -12px;
+            transition: all 0.2s ease;
+            display: inline-block;
         }
 
         .dispatch-links a:hover,
         .dispatch-links button.ward-trigger:hover {
-            text-decoration: underline;
+            background: var(--accent);
+            color: #ffffff !important;
+            box-shadow: 0 0 24px var(--accent-glow);
+            text-shadow: none;
+            text-decoration: none;
         }
 
         footer {
